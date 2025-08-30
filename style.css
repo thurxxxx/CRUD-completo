@@ -1,160 +1,334 @@
-/* Importando uma fonte para melhorar a aparência */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+/* Importando fontes Google para um design mais moderno */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap');
 
+/* Variáveis CSS para cores e fontes */
 :root {
-    --primary-color: #1de9b6; /* Verde-água da imagem */
-    --dark-color: #222;
-    --light-color: #f4f4f4;
-    --gray-color: #ccc;
-    --white-color: #fff;
+    --primary-color: #1de9b6; /* O verde-água original como destaque */
+    --secondary-color: #6a1b9a; /* Um tom de roxo profundo */
+    --text-dark: #333;
+    --text-light: #555;
+    --bg-light: #f4f7f6;
+    --bg-card: #ffffff;
+    --border-color: #e0e0e0;
+    --shadow-light: rgba(0, 0, 0, 0.08);
+
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--light-color);
-    color: var(--dark-color);
+    font-family: var(--font-body);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Suaviza as fontes */
+    -moz-osx-font-smoothing: grayscale;
 }
 
+/* Estilo do cabeçalho principal */
+.header-banner {
+    background: linear-gradient(135deg, var(--secondary-color) 0%, #8e24aa 100%); /* Gradiente roxo */
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px var(--shadow-light);
+    margin-bottom: 30px;
+}
+
+.logo-area h1 {
+    font-family: var(--font-heading);
+    font-size: 2.8em;
+    margin: 0;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+.logo-area h2 {
+    font-family: var(--font-heading);
+    font-size: 1.2em;
+    margin-top: 5px;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+/* Container principal */
 .container {
     max-width: 1200px;
-    margin: auto;
-    background: var(--white-color);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin: 0 auto;
+    padding: 0 20px 40px;
 }
 
-header {
-    background-color: var(--primary-color);
-    color: var(--dark-color);
-    padding: 20px;
-    text-align: left;
-    border-radius: 5px;
+.main-content {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards quebrem a linha em telas menores */
+    gap: 30px;
+}
+
+/* Estilo para os cards (formulário e lista) */
+.card {
+    flex: 1;
+    min-width: 300px; /* Garante que os cards tenham um tamanho mínimo */
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow-light);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efeito sutil ao passar o mouse */
+}
+
+h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    color: var(--secondary-color);
+    margin-top: 0;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--primary-color); /* Destaque com a cor verde */
+    display: inline-block; /* Faz a borda seguir o texto */
+}
+
+h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3em;
+    color: var(--text-dark);
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 10px;
+}
+
+/* Estilos de formulário */
+.form-group {
     margin-bottom: 20px;
 }
 
-main {
-    display: flex;
-    gap: 20px;
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 0.95em;
 }
 
-.form-container, .list-container {
-    flex: 1;
-    padding: 20px;
-    background: #f9f9f9;
-    border-radius: 5px;
-}
-
-h3, h4 {
-    margin-top: 0;
-    border-bottom: 2px solid var(--primary-color);
-    padding-bottom: 10px;
-}
-
-input, select {
+input[type="text"],
+input[type="number"],
+select {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    border: 1px solid var(--gray-color);
-    box-sizing: border-box; /* Garante que padding não afete a largura total */
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 1em;
+    color: var(--text-dark);
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-button {
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(29, 233, 182, 0.2); /* Sombra suave com a cor primária */
+    outline: none;
+}
+
+/* Botões */
+.btn-primary {
     background-color: var(--primary-color);
-    color: var(--dark-color);
-    font-weight: bold;
+    color: var(--secondary-color);
+    font-family: var(--font-heading);
+    font-weight: 700;
     border: none;
-    padding: 12px 20px;
+    padding: 15px 25px;
     text-transform: uppercase;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: 8px;
     width: 100%;
-    transition: background-color 0.3s ease;
+    font-size: 1.1em;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 20px;
 }
 
-button:hover {
-    background-color: #00bfa5;
+.btn-primary:hover {
+    background-color: #00bfa5; /* Um verde um pouco mais escuro */
+    transform: translateY(-2px);
 }
 
+/* Lista de Vendas */
 #listaVendas {
     list-style: none;
     padding: 0;
+    margin-top: 20px;
 }
 
 #listaVendas li {
-    background: var(--white-color);
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border-left: 5px solid var(--primary-color);
+    background: var(--bg-light);
+    padding: 18px 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border-left: 6px solid var(--secondary-color); /* Destaque roxo */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    font-size: 0.95em;
+}
+
+#listaVendas li strong {
+    color: var(--secondary-color);
+    font-weight: 600;
 }
 
 .botoes-acao button {
-    margin-left: 5px;
-    padding: 5px 10px;
+    margin-left: 8px;
+    padding: 8px 15px;
     width: auto;
-    font-size: 12px;
+    font-size: 0.85em;
+    border-radius: 5px;
+    font-weight: 600;
+    font-family: var(--font-body);
+    transition: background-color 0.3s ease;
 }
+
+.botoes-acao .btn-primary {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 8px 15px;
+    width: auto;
+    font-size: 0.85em;
+    font-family: var(--font-body);
+    font-weight: 600;
+}
+.botoes-acao .btn-primary:hover {
+    background-color: #00bfa5;
+    transform: none; /* remove o transform para botões pequenos */
+}
+
 
 .btn-delete {
     background-color: #ff5252;
-    color: var(--white-color);
+    color: white;
+    border: none;
 }
 .btn-delete:hover {
     background-color: #e04848;
 }
 
-/* Estilos do Modal (Nota Fiscal) */
+/* Modal de Nota Fiscal */
 .modal {
-    display: none; /* Escondido por padrão */
+    display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px); /* Efeito de desfoque no fundo */
 }
 
 .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 8px;
+    background-color: var(--bg-card);
+    margin: 8% auto;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 550px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
     position: relative;
+    animation: fadeIn 0.3s ease-out; /* Animação de entrada */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h2 {
+    font-family: var(--font-heading);
+    color: var(--secondary-color);
+    font-size: 2.2em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 10px;
+    display: inline-block;
 }
 
 .close-button {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
+    color: var(--text-dark);
+    font-size: 32px;
     font-weight: bold;
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    transition: color 0.3s ease;
 }
 
 .close-button:hover,
 .close-button:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    color: var(--primary-color);
 }
 
 #notaFiscalContent p {
-    line-height: 1.6;
-    font-size: 16px;
+    margin-bottom: 8px;
+    font-size: 1.05em;
+    color: var(--text-light);
 }
-#notaFiscalContent strong {
-    color: var(--dark-color);
+#notaFiscalContent p strong {
+    color: var(--text-dark);
+}
+#notaFiscalContent hr {
+    border: none;
+    border-top: 1px dashed var(--border-color);
+    margin: 20px 0;
+}
+#notaFiscalContent h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8em;
+    color: var(--secondary-color);
+    text-align: right;
+    margin-top: 30px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    .header-banner h1 {
+        font-size: 2em;
+    }
+    .header-banner h2 {
+        font-size: 1em;
+    }
+    .card {
+        padding: 20px;
+    }
+    h3 {
+        font-size: 1.5em;
+    }
+    h4 {
+        font-size: 1.1em;
+    }
+    .botoes-acao button {
+        padding: 6px 10px;
+        font-size: 0.8em;
+    }
+    .modal-content {
+        margin: 5% auto;
+        width: 95%;
+    }
+    .modal-content h2 {
+        font-size: 1.8em;
+    }
 }

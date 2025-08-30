@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         listaVendas.innerHTML = ''; // Limpa a lista antes de recriar
 
         if (vendas.length === 0) {
-            listaVendas.innerHTML = '<li>Nenhuma venda registrada.</li>';
+            listaVendas.innerHTML = '<li style="justify-content: center; color: var(--text-light); border-left: none;">Nenhuma venda registrada.</li>';
             return;
         }
         
@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <strong>Produto:</strong> ${venda.produtoNome} | <strong>Total:</strong> R$ ${valorTotal}
                 </div>
                 <div class="botoes-acao">
-                    <button onclick="viewNotaFiscal('${venda.id}')">Nota</button>
-                    <button onclick="editVenda('${venda.id}')">Editar</button>
+                    <button class="btn-primary" onclick="viewNotaFiscal('${venda.id}')">Nota</button>
+                    <button class="btn-primary" onclick="editVenda('${venda.id}')">Editar</button>
                     <button class="btn-delete" onclick="deleteVenda('${venda.id}')">Excluir</button>
                 </div>
             `;
